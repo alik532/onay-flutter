@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 
-class CardsNavbar extends StatefulWidget {
+class CardsNavbar extends StatelessWidget {
   const CardsNavbar({Key? key}) : super(key: key);
 
-  @override
-  Balance createState() => Balance();
-}
-
-class Balance extends State<CardsNavbar> {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -23,7 +18,7 @@ class Balance extends State<CardsNavbar> {
             onPressed: () {},
             child: const Text(
               "Other Cards",
-              style: TextStyle(color: Color.fromARGB(255, 2, 2, 2)),
+              style: TextStyle(color: Colors.black),
             )),
       ],
     );
