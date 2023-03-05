@@ -1,22 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MainCard extends StatefulWidget {
-  final double balance;
-  const MainCard({Key? key, required this.balance}) : super(key: key);
+  const MainCard({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => Balance();
 }
 
 class Balance extends State<MainCard> {
-  late double _balance;
-
-  @override
-  void initState() {
-    super.initState();
-    _balance = widget.balance;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -61,14 +53,14 @@ class Balance extends State<MainCard> {
                 Column(
                   children: [
                     Text(
-                      "$_balance Тг",
+                      "${Provider.of<double>(context).toString()} Тг",
                       style: const TextStyle(
                           color: Colors.black,
                           decorationThickness: 0,
                           fontSize: 30),
                     ),
                     Text(
-                      "~${_balance ~/ 40} поездок, Алматы",
+                      "~${Provider.of<double>(context) ~/ 40} поездок, Алматы",
                       style: const TextStyle(
                         fontSize: 15,
                         color: Colors.black,

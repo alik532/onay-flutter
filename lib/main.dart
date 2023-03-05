@@ -1,12 +1,17 @@
 // ignore_for_file: sized_box_for_whitespace
-
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:onay/components/cards_navbar.dart';
+import 'package:onay/components/footer_navbar.dart';
 import 'components/main_card.dart';
 import 'components/buttons.dart';
 
 void main() {
-  runApp(const MyApp());
+  double balance = 480;
+  runApp(Provider(
+    create: (context) => balance,
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -24,11 +29,12 @@ class MyApp extends StatelessWidget {
               child: const Column(
                 children: [
                   CardsNavbar(),
-                  MainCard(balance: 400),
+                  MainCard(),
                   Buttons(),
                   SizedBox(
                     height: 60,
                   ),
+                  FooterNavbar(),
                 ],
               )),
         ));
