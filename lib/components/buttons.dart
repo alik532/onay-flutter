@@ -1,4 +1,17 @@
 import 'package:flutter/material.dart';
+import '../screens/deposit_screen.dart';
+
+const iconList1 = [
+  Icons.add,
+  Icons.arrow_circle_right_rounded,
+  Icons.history,
+];
+
+const iconList2 = [
+  Icons.qr_code,
+  Icons.numbers,
+  Icons.my_library_books_rounded
+];
 
 class Buttons extends StatelessWidget {
   const Buttons({Key? key}) : super(key: key);
@@ -9,65 +22,35 @@ class Buttons extends StatelessWidget {
         const SizedBox(height: 30),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            OutlinedButton(
-                style: ButtonStyle(
-                    padding:
-                        MaterialStateProperty.all(const EdgeInsets.all(35))),
-                onPressed: () {},
-                child: const Icon(
-                  Icons.add,
-                  color: Colors.black,
-                )),
-            OutlinedButton(
-                style: ButtonStyle(
-                    padding:
-                        MaterialStateProperty.all(const EdgeInsets.all(35))),
-                onPressed: () {},
-                child: const Icon(Icons.arrow_circle_right_rounded,
-                    color: Colors.black)),
-            OutlinedButton(
-                style: ButtonStyle(
-                    padding:
-                        MaterialStateProperty.all(const EdgeInsets.all(35))),
-                onPressed: () {},
-                child: const Icon(
-                  Icons.history,
-                  color: Colors.black,
-                )),
-          ],
+          children: iconList1
+              .map((icon) => OutlinedButton(
+                    style: primaryButtonStyles(),
+                    onPressed: () {
+                      if (icon == Icons.add) {
+                        print("routing");
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const DepositScreen()));
+                      }
+                    },
+                    child: Icon(icon, color: Colors.black),
+                  ))
+              .toList(),
         ),
         const SizedBox(height: 50),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            OutlinedButton(
-                style: ButtonStyle(
-                    padding:
-                        MaterialStateProperty.all(const EdgeInsets.all(35))),
-                onPressed: () {},
-                child: const Icon(
-                  Icons.qr_code,
-                  color: Colors.black,
-                )),
-            OutlinedButton(
-                style: ButtonStyle(
-                    padding:
-                        MaterialStateProperty.all(const EdgeInsets.all(35))),
-                onPressed: () {},
-                child: const Icon(Icons.numbers, color: Colors.black)),
-            OutlinedButton(
-                style: ButtonStyle(
-                    padding:
-                        MaterialStateProperty.all(const EdgeInsets.all(35))),
-                onPressed: () {},
-                child: const Icon(
-                  Icons.my_library_books_rounded,
-                  color: Colors.black,
-                )),
-          ],
+          children: iconList2
+              .map((icon) => OutlinedButton(
+                    style: primaryButtonStyles(),
+                    onPressed: () {},
+                    child: Icon(icon, color: Colors.black),
+                  ))
+              .toList(),
         )
       ],
     );
   }
 }
+
+ButtonStyle primaryButtonStyles() =>
+    ButtonStyle(padding: MaterialStateProperty.all(const EdgeInsets.all(32)));

@@ -4,29 +4,15 @@ class FooterNavbar extends StatelessWidget {
   const FooterNavbar({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          "item",
-          style: TextStyle(
-              color: Colors.black, fontSize: 18, decorationThickness: 0),
-        ),
-        Text(
-          "item",
-          style: TextStyle(
-              color: Colors.black, fontSize: 18, decorationThickness: 0),
-        ),
-        Text(
-          "item",
-          style: TextStyle(
-              color: Colors.black, fontSize: 18, decorationThickness: 0),
-        ),
-        Text(
-          "item",
-          style: TextStyle(
-              color: Colors.black, fontSize: 18, decorationThickness: 0),
-        )
+        ElevatedButton(
+            style: ButtonStyle(
+                padding: MaterialStateProperty.all(
+                    const EdgeInsets.symmetric(horizontal: 40, vertical: 15))),
+            onPressed: () {},
+            child: const Icon(Icons.abc_rounded))
       ],
     );
   }
