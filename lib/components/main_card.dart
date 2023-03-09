@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../main.dart';
 
 class MainCard extends StatefulWidget {
   const MainCard({Key? key}) : super(key: key);
@@ -53,14 +54,14 @@ class Balance extends State<MainCard> {
                 Column(
                   children: [
                     Text(
-                      "${Provider.of<double>(context).toString()} Тг",
+                      "${Provider.of<BalanceState>(context).balance.toString()} Тг",
                       style: const TextStyle(
                           color: Colors.black,
                           decorationThickness: 0,
                           fontSize: 30),
                     ),
                     Text(
-                      "~${Provider.of<double>(context) ~/ 40} поездок, Алматы",
+                      "~${Provider.of<BalanceState>(context).balance ~/ 40} поездок, Алматы",
                       style: const TextStyle(
                         fontSize: 15,
                         color: Colors.black,

@@ -27,7 +27,6 @@ class Buttons extends StatelessWidget {
                     style: primaryButtonStyles(),
                     onPressed: () {
                       if (icon == Icons.add) {
-                        print("routing");
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const DepositScreen()));
                       }

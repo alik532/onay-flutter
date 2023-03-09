@@ -7,9 +7,8 @@ import 'components/main_card.dart';
 import 'components/buttons.dart';
 
 void main() {
-  double balance = 480;
-  runApp(Provider(
-    create: (context) => balance,
+  runApp(ChangeNotifierProvider(
+    create: (context) => BalanceState(),
     child: const MyApp(),
   ));
 }
@@ -19,6 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        theme: ThemeData(primaryColor: Colors.yellow),
         debugShowCheckedModeBanner: false,
         title: 'Onay',
         home: SafeArea(
@@ -38,5 +38,13 @@ class MyApp extends StatelessWidget {
                 ],
               )),
         ));
+  }
+}
+
+class BalanceState extends ChangeNotifier {
+  double balance = 480;
+  void deposit(amount) {
+    balance += amount;
+    notifyListeners();
   }
 }
