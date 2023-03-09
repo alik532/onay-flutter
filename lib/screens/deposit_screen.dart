@@ -65,6 +65,9 @@ class _DepositScreenState extends State<DepositScreen> {
                         padding: const EdgeInsets.all(10),
                         child: ElevatedButton(
                             style: const ButtonStyle(
+                                padding: MaterialStatePropertyAll(
+                                    EdgeInsets.symmetric(
+                                        horizontal: 163, vertical: 20)),
                                 backgroundColor: MaterialStatePropertyAll(
                                     app_colors.primaryLight)),
                             onPressed: () {
@@ -75,7 +78,11 @@ class _DepositScreenState extends State<DepositScreen> {
                                     .deposit(int.parse(myController.text) - 10);
                               }
                             },
-                            child: const Text("Deposit")),
+                            child: const Text(
+                              "Deposit",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.black),
+                            )),
                       )
                     ]),
               ),

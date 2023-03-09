@@ -1,5 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import '../styles/app_colors.dart' as app_colors;
 
 class CameraPage extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -45,7 +46,9 @@ class _CameraPageState extends State<CameraPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+          backgroundColor: Colors.black,
           appBar: AppBar(
+            backgroundColor: app_colors.primaryLight,
             leading: IconButton(
                 onPressed: () {
                   Navigator.pop(context);
