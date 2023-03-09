@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../screens/deposit_screen.dart';
+import 'package:camera/camera.dart';
+import '../screens/camera_page.dart';
 
 const iconList1 = [
   Icons.add,
@@ -25,7 +27,7 @@ class Buttons extends StatelessWidget {
           children: iconList1
               .map((icon) => OutlinedButton(
                     style: primaryButtonStyles(),
-                    onPressed: () {
+                    onPressed: () async {
                       if (icon == Icons.add) {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const DepositScreen()));
@@ -41,7 +43,19 @@ class Buttons extends StatelessWidget {
           children: iconList2
               .map((icon) => OutlinedButton(
                     style: primaryButtonStyles(),
-                    onPressed: () {},
+                    onPressed: () async {
+                      if (icon == Icons.qr_code) {
+                        await availableCameras().then(
+                          (value) {
+                            return Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) =>
+                                        CameraPage(cameras: value)));
+                          },
+                        );
+                      }
+                    },
                     child: Icon(icon, color: Colors.black),
                   ))
               .toList(),
