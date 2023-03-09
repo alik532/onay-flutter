@@ -49,9 +49,12 @@ class _DepositScreenState extends State<DepositScreen> {
                       TextFormField(
                         controller: myController,
                         validator: (value) {
-                          if (value is! int ||
+                          if (value is! num ||
                               value == null ||
-                              int.parse(value) <= 200) {
+                              int.parse(value.toString()) <= 200) {
+                            if (int.parse(value.toString()) >= 200) {
+                              return null;
+                            }
                             return "Please enter valid amount of cash";
                           }
                           return null;
