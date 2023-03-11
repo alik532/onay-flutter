@@ -5,8 +5,10 @@ import 'package:onay/components/cards_navbar.dart';
 import 'package:onay/components/footer_navbar.dart';
 import 'components/main_card.dart';
 import 'components/buttons.dart';
+import './data/cards_list.dart';
 
 void main() {
+  print(cards);
   runApp(ChangeNotifierProvider(
     create: (context) => BalanceState(),
     child: const MyApp(),
